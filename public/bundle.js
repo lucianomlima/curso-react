@@ -22306,55 +22306,51 @@
 
 	var React = __webpack_require__(1);
 
-	var UserInfo = React.createClass({
-	    displayName: "UserInfo",
-
-	    render: function () {
-	        var userInfo = this.props.user ? React.createElement(
+	function UserInfo(props) {
+	    var userInfo = props.user ? React.createElement(
+	        "div",
+	        { className: "row" },
+	        React.createElement(
 	            "div",
-	            { className: "row" },
+	            { className: "col-lg-4" },
+	            React.createElement("img", {
+	                className: "img-circle",
+	                src: props.user.avatar_url,
+	                alt: "avatar",
+	                width: "140",
+	                height: "140" }),
 	            React.createElement(
-	                "div",
-	                { className: "col-lg-4" },
-	                React.createElement("img", {
-	                    className: "img-circle",
-	                    src: this.props.user.avatar_url,
-	                    alt: "avatar",
-	                    width: "140",
-	                    height: "140" }),
+	                "h2",
+	                null,
+	                props.user.login
+	            ),
+	            React.createElement(
+	                "p",
+	                null,
+	                props.user.name
+	            ),
+	            React.createElement(
+	                "p",
+	                null,
+	                "Followers: ",
+	                props.user.followers,
+	                " / Following: ",
+	                props.user.following
+	            ),
+	            React.createElement(
+	                "p",
+	                null,
 	                React.createElement(
-	                    "h2",
-	                    null,
-	                    this.props.user.login
-	                ),
-	                React.createElement(
-	                    "p",
-	                    null,
-	                    this.props.user.name
-	                ),
-	                React.createElement(
-	                    "p",
-	                    null,
-	                    "Followers: ",
-	                    this.props.user.followers,
-	                    " / Following: ",
-	                    this.props.user.following
-	                ),
-	                React.createElement(
-	                    "p",
-	                    null,
-	                    React.createElement(
-	                        "a",
-	                        { className: "btn btn-default", href: this.props.user.html_url, role: "button" },
-	                        "View details"
-	                    )
+	                    "a",
+	                    { className: "btn btn-default", href: props.user.html_url, role: "button" },
+	                    "View details"
 	                )
 	            )
-	        ) : null;
+	        )
+	    ) : null;
 
-	        return userInfo;
-	    }
-	});
+	    return userInfo;
+	}
 
 	module.exports = UserInfo;
 
