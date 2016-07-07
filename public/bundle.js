@@ -20976,11 +20976,26 @@
 	var GitHub = React.createClass({
 	    displayName: 'GitHub',
 
+	    getInitialState: function () {
+	        return {
+	            user: null,
+	            repos: []
+	        };
+	    },
+	    updateUser: function (user) {
+	        this.setState({ user: user });
+	    },
+	    updateRepos: function (repos) {
+	        this.setState({ repos: repos });
+	    },
 	    render: function () {
 	        return React.createElement(
 	            'div',
 	            { className: 'container' },
-	            React.createElement(SearchUser, null)
+	            React.createElement(SearchUser, {
+	                updateUser: this.updateUser,
+	                updateRepos: this.updateRepos
+	            })
 	        );
 	    }
 	});
@@ -20999,12 +21014,14 @@
 
 	    handleSubmit: function (e) {
 	        e.preventDefault();
+
 	        GitHubUser.getByUsername(this.refs.username.value).then(function (response) {
-	            console.log(response);
-	        });
+	            this.props.updateUser(response.data);
+	        }.bind(this));
+
 	        GitHubUser.getReposByUsername(this.refs.username.value).then(function (response) {
-	            console.log(response);
-	        });
+	            this.props.updateRepos(response.data);
+	        }.bind(this));
 	    },
 	    render: function () {
 	        return React.createElement(
