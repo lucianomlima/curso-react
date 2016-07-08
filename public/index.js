@@ -21112,10 +21112,18 @@
 
 	            _GitHubUser2.default.getByUsername(this.refs.username.value).then(function (response) {
 	                updateUser(response.data);
+	            }).catch(function (response) {
+	                if (response.status == 404) {
+	                    alert('getByUsername rejected');
+	                }
 	            });
 
 	            _GitHubUser2.default.getReposByUsername(this.refs.username.value).then(function (response) {
 	                updateRepos(response.data);
+	            }).catch(function (response) {
+	                if (response.status == 404) {
+	                    alert('getReposByUsername rejected');
+	                }
 	            });
 	        }
 	    }, {
@@ -21134,26 +21142,47 @@
 	                    { className: 'row' },
 	                    _react2.default.createElement(
 	                        'form',
-	                        { onSubmit: this.handleSubmit },
+	                        { className: 'form-horizontal', onSubmit: this.handleSubmit },
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'form-group' },
 	                            _react2.default.createElement(
 	                                'label',
-	                                null,
+	                                { className: 'control-label col-sm-2' },
 	                                'Username'
 	                            ),
-	                            _react2.default.createElement('input', {
-	                                type: 'text',
-	                                ref: 'username',
-	                                className: 'form-control',
-	                                placeholder: 'Ex: lucianomlima'
-	                            })
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-sm-10' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'input-group' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'input-group-addon' },
+	                                        '@'
+	                                    ),
+	                                    _react2.default.createElement('input', {
+	                                        type: 'text',
+	                                        ref: 'username',
+	                                        className: 'form-control',
+	                                        placeholder: 'Ex: lucianomlima'
+	                                    })
+	                                )
+	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            'button',
-	                            { type: 'submit', className: 'btn btn-primary' },
-	                            'Buscar'
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-sm-offset-2 col-sm-10' },
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { type: 'submit', className: 'btn btn-primary' },
+	                                    'Buscar'
+	                                )
+	                            )
 	                        )
 	                    )
 	                )
