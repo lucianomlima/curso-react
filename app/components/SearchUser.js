@@ -5,12 +5,14 @@ const SearchUser = React.createClass({
     handleSubmit(e) {
         e.preventDefault();
 
+        const { updateUser, updateRepos } = this.props;
+
         GitHubUser.getByUsername(this.refs.username.value).then((response) => {
-            this.props.updateUser(response.data);
+            updateUser(response.data);
         });
 
         GitHubUser.getReposByUsername(this.refs.username.value).then((response) => {
-            this.props.updateRepos(response.data);
+            updateRepos(response.data);
         });
     },
     render() {

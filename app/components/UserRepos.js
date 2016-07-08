@@ -10,7 +10,8 @@ const UserRepos = React.createClass({
         this.setState({reposCount: props.repos.length });
     },
     render() {
-        let repos = this.props.repos.map(function(repo, key) {
+        const { repos } = this.props;
+        let reposList = repos.map(function(repo, key) {
             return (
                 <div key={key} className="thumbnail">
                     <div className="caption">
@@ -31,7 +32,7 @@ const UserRepos = React.createClass({
         return (
             <div>
                 <h2>{this.state.reposCount} repositories</h2>
-                {repos}
+                {reposList}
             </div>
         );
     }
