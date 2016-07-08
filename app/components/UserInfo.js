@@ -1,4 +1,5 @@
 var React = require('react');
+var UserRepos = require('./UserRepos');
 
 function UserInfo(props) {
     var userInfo = props.user ?
@@ -15,6 +16,9 @@ function UserInfo(props) {
                 <p>{props.user.name}</p>
                 <p>Followers: {props.user.followers} / Following: {props.user.following}</p>
                 <p><a className="btn btn-default" href={props.user.html_url} role="button">View details</a></p>
+            </div>
+            <div className="col-lg-8">
+                <UserRepos repos={props.repos} />
             </div>
         </div>
     ) : null;
