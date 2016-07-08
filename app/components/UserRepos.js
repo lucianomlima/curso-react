@@ -7,7 +7,7 @@ var UserRepos = React.createClass({
         };
     },
     componentWillReceiveProps: function(props) {
-        this.setState({reposCount: props.repos.length});
+        this.setState({reposCount: props.repos.length });
     },
     render: function() {
         var repos = this.props.repos.map(function(repo, index) {
