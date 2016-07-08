@@ -1,5 +1,5 @@
-var React = require('react');
-var GitHubUser = require('../services/GitHubUser');
+import React from 'react';
+import GitHubUser from '../services/GitHubUser';
 
 var SearchUser = React.createClass({
     handleSubmit: function(e) {
@@ -40,4 +40,5 @@ SearchUser.propTypes = {
     updateUser: React.PropTypes.func.isRequired,
     updateRepos: React.PropTypes.func.isRequired
 };
-module.exports = SearchUser;
+
+export default SearchUser;

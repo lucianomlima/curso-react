@@ -1,7 +1,7 @@
-var axios = require('axios');
-var url = 'https://api.github.com/users/';
+import axios from 'axios';
 
-var GitHubUser = {
+const url = 'https://api.github.com/users/';
+const GitHubUser = {
     getByUsername: function(username) {
         return axios.get(url + username);
     },
@@ -10,4 +10,4 @@ var GitHubUser = {
     }
 };
 
-module.exports = GitHubUser;
+export default GitHubUser;

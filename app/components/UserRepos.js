@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 var UserRepos = React.createClass({
     getInitialState: function() {
@@ -10,7 +10,7 @@ var UserRepos = React.createClass({
         this.setState({reposCount: props.repos.length });
     },
     render: function() {
-        var repos = this.props.repos.map(function(repo, key) {
+        let repos = this.props.repos.map(function(repo, key) {
             return (
                 <div key={key} className="thumbnail">
                     <div className="caption">
@@ -37,4 +37,4 @@ var UserRepos = React.createClass({
     }
 });
 
-module.exports = UserRepos;
+export default UserRepos;
