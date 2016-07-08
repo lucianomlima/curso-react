@@ -10,9 +10,9 @@ var UserRepos = React.createClass({
         this.setState({reposCount: props.repos.length });
     },
     render: function() {
-        var repos = this.props.repos.map(function(repo, index) {
+        var repos = this.props.repos.map(function(repo, key) {
             return (
-                <div key={index} className="thumbnail">
+                <div key={key} className="thumbnail">
                     <div className="caption">
                         <h3>
                             {repo.name}

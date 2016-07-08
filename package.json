@@ -1,12 +1,12 @@
 {
   "name": "curso-react",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Curso de React",
+  "main": "public/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Luciano Lima",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.12.0",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1"
   }
 }
