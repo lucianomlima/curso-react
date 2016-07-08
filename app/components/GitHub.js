@@ -2,20 +2,20 @@ import React from 'react';
 import SearchUser from './SearchUser';
 import UserInfo from './UserInfo';
 
-var GitHub = React.createClass({
-    getInitialState: function() {
+const GitHub = React.createClass({
+    getInitialState() {
         return {
             user: null,
             repos: []
         };
     },
-    updateUser: function(user) {
+    updateUser(user) {
         this.setState({user: user});
     },
-    updateRepos: function(repos) {
+    updateRepos(repos) {
         this.setState({repos: repos});
     },
-    render: function() {
+    render() {
         return (
             <div className="container">
                 <SearchUser

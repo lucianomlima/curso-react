@@ -21003,7 +21003,6 @@
 
 	var GitHub = _react2.default.createClass({
 	    displayName: 'GitHub',
-
 	    getInitialState: function getInitialState() {
 	        return {
 	            user: null,
@@ -21055,17 +21054,18 @@
 
 	var SearchUser = _react2.default.createClass({
 	    displayName: 'SearchUser',
-
 	    handleSubmit: function handleSubmit(e) {
+	        var _this = this;
+
 	        e.preventDefault();
 
 	        _GitHubUser2.default.getByUsername(this.refs.username.value).then(function (response) {
-	            this.props.updateUser(response.data);
-	        }.bind(this));
+	            _this.props.updateUser(response.data);
+	        });
 
 	        _GitHubUser2.default.getReposByUsername(this.refs.username.value).then(function (response) {
-	            this.props.updateRepos(response.data);
-	        }.bind(this));
+	            _this.props.updateRepos(response.data);
+	        });
 	    },
 	    render: function render() {
 	        return _react2.default.createElement(
@@ -21131,13 +21131,13 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var url = 'https://api.github.com/users/';
+	var url = 'https://api.github.com/users';
 	var GitHubUser = {
 	    getByUsername: function getByUsername(username) {
-	        return _axios2.default.get(url + username);
+	        return _axios2.default.get(url + '/' + username);
 	    },
 	    getReposByUsername: function getReposByUsername(username) {
-	        return _axios2.default.get(url + username + '/repos');
+	        return _axios2.default.get(url + '/' + username + '/repos');
 	    }
 	};
 
@@ -22375,7 +22375,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function UserInfo(props) {
+	var UserInfo = function UserInfo(props) {
 	    var userInfo = props.user ? _react2.default.createElement(
 	        'div',
 	        { className: 'row' },
@@ -22424,7 +22424,7 @@
 	    ) : null;
 
 	    return userInfo;
-	}
+	};
 
 	UserInfo.propTypes = {
 	    user: _react2.default.PropTypes.object,
@@ -22451,7 +22451,6 @@
 
 	var UserRepos = _react2.default.createClass({
 	    displayName: "UserRepos",
-
 	    getInitialState: function getInitialState() {
 	        return {
 	            reposCount: 0

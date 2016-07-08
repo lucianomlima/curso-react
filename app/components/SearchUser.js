@@ -1,19 +1,19 @@
 import React from 'react';
 import GitHubUser from '../services/GitHubUser';
 
-var SearchUser = React.createClass({
-    handleSubmit: function(e) {
+const SearchUser = React.createClass({
+    handleSubmit(e) {
         e.preventDefault();
 
-        GitHubUser.getByUsername(this.refs.username.value).then(function(response) {
+        GitHubUser.getByUsername(this.refs.username.value).then((response) => {
             this.props.updateUser(response.data);
-        }.bind(this));
+        });
 
-        GitHubUser.getReposByUsername(this.refs.username.value).then(function(response) {
+        GitHubUser.getReposByUsername(this.refs.username.value).then((response) => {
             this.props.updateRepos(response.data);
-        }.bind(this));
+        });
     },
-    render: function() {
+    render() {
         return (
             <div className="jumbotron">
                 <h1>GitHub Info</h1>
